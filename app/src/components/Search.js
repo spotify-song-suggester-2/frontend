@@ -17,18 +17,26 @@ const Search = (props) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <input name='search' placeholder='search for a song' onChange={handleChange}/>
-            <button>search</button>
-        </form>
+        <div>
+            <form onSubmit={onSubmit}>
+                <input name='search' placeholder='search for a song' onChange={handleChange}/>
+                <button>search</button>
+            </form>
+            {props.songs && <div>
+                {props.songs.map(song => {
+                    return song.name
+                })}
+            </div>}
+        </div>
     )
 }
 
 
 const mapStateToProps = state => {
     return {
-        //add in specific state here
-        state
+        isLoading: state.isLoading,
+        songs: state.songs,
+        error: state.error
     }
 }
 
