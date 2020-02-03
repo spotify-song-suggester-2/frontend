@@ -7,6 +7,7 @@ const Dashboard = (props) => {
         <div>
             I am the dashboard
             <Search/>
+            {/* Saved songs component which will receive songlist prop*/}
         </div>
     )
 }
