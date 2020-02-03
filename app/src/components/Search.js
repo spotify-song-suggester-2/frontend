@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
+import {connect} from 'react-redux'
 
-export default function Search() {
+const Search = (props) => {
 
     const [song, setSong] = useState('');
 
@@ -21,3 +22,13 @@ export default function Search() {
         </form>
     )
 }
+
+
+const mapStateToProps = state => {
+    return {
+        //add in specific state here
+        state
+    }
+}
+
+export default connect(mapStateToProps, {})(Search)

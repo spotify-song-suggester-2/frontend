@@ -1,7 +1,8 @@
 import React from 'react'
 import Search from './Search'
+import {connect} from 'react-redux'
 
-export default function Dashboard() {
+const Dashboard = (props) => {
     return (
         <div>
             I am the dashboard
@@ -9,3 +10,12 @@ export default function Dashboard() {
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        //add in specific state here
+        state
+    }
+}
+
+export default connect(mapStateToProps, {})(Dashboard)
