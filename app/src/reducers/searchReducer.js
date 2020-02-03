@@ -17,7 +17,8 @@ export const searchReducer = (state=initialState, action) => {
             return{
                 ...state,
                 isLoading: false,
-                songs: [...action.payload]
+                // songs: [...action.payload]
+                songs: action.payload
             }
         case FETCHING_SEARCH_FAILURE:
             return{
