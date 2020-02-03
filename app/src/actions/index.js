@@ -12,3 +12,14 @@ export const signOut =() =>{
 }
 
 
+export const Favorite=()=>{
+    return{
+        type:'ADD_FAVORITE'
+    }
+}
+
+export const UnFavorite=()=>{
+    return{
+        type:'REMOVE_FAVORITE'
+    }
+}

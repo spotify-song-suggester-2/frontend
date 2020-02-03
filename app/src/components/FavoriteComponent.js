@@ -5,9 +5,7 @@ import React from 'react'
 
 const FavoriteComponent = (props) => {
 
-
-
-
+    
 
     return (
         <div>
