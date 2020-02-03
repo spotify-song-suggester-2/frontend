@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {connect} from 'react-redux'
+import {searchSongs} from '../actions/searchActions'
 
 const Search = (props) => {
 
@@ -11,7 +12,7 @@ const Search = (props) => {
 
     const onSubmit = e => {
         e.preventDefault();
-        //make some call to the api with song
+        props.searchSongs(song);
         console.log(song);
     }
 
@@ -31,4 +32,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {})(Search)
+export default connect(mapStateToProps, {searchSongs})(Search)
