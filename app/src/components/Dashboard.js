@@ -2,14 +2,16 @@ import React from 'react'
 import Search from './Search'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
+import FavoriteComponent from './FavoriteData'
 
 const Dashboard = (props) => {
     return (
         <div>
-            <H1>Symphinity</H1>
+            {/* <H1>Symphinity</H1> */}
             <Search search={'searchSongs'} ph={'song name'}/>
             {/* <Search search={'searchMood'} ph={'mood'}/> */}
             {/* Saved songs component which will receive songlist prop*/}
+            <FavoriteComponent/>
         </div>
     )
 }
