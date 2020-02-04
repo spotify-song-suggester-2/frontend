@@ -25,6 +25,6 @@ export const Favorite=(Song)=>{
 export const UnFavorite=(Song)=>{
     return{
         type:'REMOVE_FAVORITE',
-        payloag:Song
+        payload:Song
     }
 }
