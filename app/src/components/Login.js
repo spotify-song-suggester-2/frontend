@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 const Login = props => {
-  const { user } = props;
+  // const { user } = props;
   const history = useHistory();
   const [currentVal, setCurrentVal] = useState({
     username: "",
     password: ""
   });
   const [message, setMessage] = useState("");
+
+  // useEffect(()=>{
+  //   axios.get()
+  // }, [])
 
   const handleChange = e => {
     setCurrentVal({ ...currentVal, [e.target.name]: e.target.value });
@@ -17,21 +22,13 @@ const Login = props => {
 
   const onSubmit = e => {
     e.preventDefault();
-    //search through user array
-    //if credentials match, return a welcome message
-    //if not, say user not found
-    if (user){
-        user.map(person => {
-        if (person.username === currentVal.username) {
-            if (person.password === currentVal.password) {
-            //   history.push("/dashboard");
-            return setMessage("Hello " + person.username);
-            }
-        } else {
-            return setMessage("not found");
-        }
-        });
-    }
+    console.log(currentVal);
+    axios.post('http://localhost:5000/api/login', currentVal)
+      .then(res=>{
+        localStorage.setItem('token', res.data.payload);
+        history.push('/dashboard');
+      })
+      .catch(err=>console.log(err))
   };
 
   return (
@@ -46,7 +43,7 @@ const Login = props => {
         />
         <button>Login</button>
       </form>
-      <div style={{color: 'white'}}>Message: {message}</div>
+      {/* <div style={{color: 'white'}}>Message: {message}</div> */}
     </div>
   );
 };

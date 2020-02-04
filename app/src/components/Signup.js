@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import axios from 'axios'
 
 const Form = styled.form`
   display: flex;
@@ -54,9 +55,13 @@ const SignUp = props => {
       currentVal.password.length >= 5 &&
       regex.test(currentVal.email)
     ) {
-      setCurrentUser(currentVal.username);
-      console.log("from submit", currentVal.username);
-      setUser([...user, currentVal]);
+      // setCurrentUser(currentVal.username);
+      // console.log("from submit", currentVal.username);
+      // setUser([...user, currentVal]);
+      console.log(currentVal);
+      axios.post('http://localhost:5000/api/friends', currentVal)
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err));
 
       setCurrentVal({
         username: "",

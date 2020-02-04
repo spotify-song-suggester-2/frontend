@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const Dashboard = (props) => {
     return (
         <div>
-            <H1>Symphinity</H1>
+            {/* <H1>Symphinity</H1> */}
             <Search search={'searchSongs'} ph={'song name'}/>
             {/* <Search search={'searchMood'} ph={'mood'}/> */}
             {/* Saved songs component which will receive songlist prop*/}
