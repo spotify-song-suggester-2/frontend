@@ -21,7 +21,7 @@ const FavoriteList = (props) => {
     return (
 
         <div>
-            <h4>fav songs</h4>
+            
             <ol>
                 {props.Favorites.map(item=>(
                     <addedFav removeFav={props.removeFav} Song={item}/>

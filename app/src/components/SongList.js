@@ -16,7 +16,7 @@ const SongList = (props) => {
 
     return (
         <div>
-            <h4>songs</h4>
+        
         <ol>
           {props.dummySongs.map(item => (
             <Songs addFav={props.addFav} key={item.id} Song={item} />
