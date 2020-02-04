@@ -2,7 +2,7 @@ const initialState={
 
     Favorites:{
         isFavorited:null,
-        favoriteList:["song"]
+        favoriteList:[]
     },
     dummySongs:[
         {name:"Song1"},

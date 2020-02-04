@@ -5,8 +5,8 @@ const SongList = (props) => {
     const Songs = props => {
         return (
           <li>
-            <button onClick={() => props.addFav(props.Song)} className="button">Add</button>
-            {props.Song.name} (+{props.Song.price})
+            <button onClick={() => props.addFav(props.Song)} className="button">Favorite</button>
+            {props.Song.name} 
           </li>
         );
       };

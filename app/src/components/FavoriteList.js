@@ -6,6 +6,7 @@ import React from 'react'
 const FavoriteList = (props) => {
 
     const addedFav = props => {
+        console.log(props.Favorites)
         return (
           <li>
             <button onClick={() => props.removeFav(props.Song)} className="button">X</button>
@@ -22,8 +23,8 @@ const FavoriteList = (props) => {
         <div>
             <h4>fav songs</h4>
             <ol>
-                {props.Favorite.favoriteList.map(Song=>(
-                    <addedFav removeFav={props.removeFav} key={Song.id} Song={Song}/>
+                {props.Favorites.map(item=>(
+                    <addedFav removeFav={props.removeFav} Song={item}/>
                 ))}
             </ol>
             

@@ -8,14 +8,15 @@ import SongList from './SongList';
 
 
 const FavoriteData= (props) => {
+    console.log(props.favoriteLists)
 
     const removeFav =  Song => {
-        props.removeFav(Song);
+        props.UnFavorite(Song);
        
       };
     
       const addFav = Song => {
-        props.addFav(Song);
+        props.Favorite(Song);
       
       };
 
@@ -26,9 +27,9 @@ const FavoriteData= (props) => {
         <div>
         <div>
         <h2>songList</h2>
-           <FavoriteList Favorite={props.Favorite}
-           UnFavorite={removeFav}
-           Favorite={props.Favorites}/>
+           <FavoriteList 
+           removeFav={removeFav}
+           Favorites={props.favoriteLists}/>
 
         </div>
         <div>
@@ -45,10 +46,11 @@ const FavoriteData= (props) => {
 
 const mapStateToProps= state=>{
     console.log(state)
-    console.log(state.favoriteReducer.Favorites.favoriteList)
+    console.log(state.favoriteReducer.Favorites)
     return {
         Favorites:state.favoriteReducer.Favorites,
-        dummySongs:state.favoriteReducer.dummySongs
+        dummySongs:state.favoriteReducer.dummySongs,
+        favoriteLists: state.favoriteReducer.Favorites.favoriteList
        
     }
 }
