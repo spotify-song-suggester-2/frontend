@@ -4,17 +4,16 @@ import React from 'react'
 
 
 const FavoriteList = (props) => {
+    console.log('from the favorite list', props.Favorites);
 
     const addedFav = props => {
-        console.log(props.Favorites)
-        return (
-          <li>
-            <button onClick={() => props.removeFav(props.Song)} className="button">X</button>
-            {props.Song.name}
-          </li>
-        );
-      };
-
+      return (
+        <li>
+          <button onClick={() => props.removeFav(props.Song)} className="button">X</button>
+          {props.Song.name}
+        </li>
+      );
+    };
 
 
 
@@ -31,5 +30,7 @@ const FavoriteList = (props) => {
         </div>
     )
 }
+
+
 
 export default FavoriteList

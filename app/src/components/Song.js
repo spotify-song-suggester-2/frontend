@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import {Favorite} from '../actions'
+import {connect} from 'react-redux'
 
-export default function Song(props) {
+const Song = (props) => {
+    console.log('song props', props);
     const {song} = props;
     return (
         <SongContainer>
@@ -13,13 +16,24 @@ export default function Song(props) {
                 <p>{song.tempo} BPM</p>
             </InfoDiv>
             <ButtonDiv>
-                <Button>Favorite</Button>
+            
+                <Button onClick={() => props.Favorite(song)}>Favorite</Button>
             </ButtonDiv>
             
             
         </SongContainer>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        Favorites: state.favoriteReducer.Favorites,
+        dummySongs: state.favoriteReducer.dummySongs
+
+    }
+}
+
+export default connect(mapStateToProps, {Favorite})(Song)
 
 const SongContainer = styled.div`
     border-bottom: 3px solid white;

@@ -3,24 +3,27 @@ import {connect} from 'react-redux'
 import {searchSongs, displaySongs} from '../actions/searchActions'
 import styled from 'styled-components'
 import Song from './Song'
+import axios from 'axios'
 
 const Search = (props) => {
+
 
     useEffect(()=>{
         props.displaySongs();
         console.log('result', props.result)
-        
+
     }, [])
 
     const handleChange = (e) => {
         if (e.target.value !== ''){
             props[props.search](e.target.value)
         }
-        
+
     }
 
     const onSubmit = e => {
         e.preventDefault();
+
     }
 
     return (
@@ -77,3 +80,5 @@ const Songs = styled.div`
     margin: 0 auto;
     // border: 1px solid red; 
 `;
+
+

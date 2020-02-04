@@ -8,7 +8,7 @@ import SongList from './SongList';
 
 
 const FavoriteData= (props) => {
-    console.log(props.favoriteLists)
+    console.log('From favoritedata', props.favoriteLists)
 
     const removeFav =  Song => {
         props.UnFavorite(Song);
