@@ -4,6 +4,15 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {createStore, applyMiddleware} from 'redux'
+import reducer from './reducers'
+import {Provider} from 'react-redux'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+
+
+const store = createStore(reducer, applyMiddleware(thunk, logger));
+
+ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 
