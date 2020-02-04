@@ -1,8 +1,9 @@
-import {FETCHING_SEARCH_START, FETCHING_SEARCH_SUCCESS, FETCHING_SEARCH_FAILURE} from '../actions/searchActions'
+import {FETCHING_SEARCH_START, FETCHING_SEARCH_SUCCESS, FETCHING_SEARCH_FAILURE, FETCHING_SONGLIST_START, FETCHING_SONGLIST_SUCCESS, FETCHING_SONGLIST_FAILURE} from '../actions/searchActions'
 
 const initialState = {
     isLoading: false,
     songs: [],
+    result: [],
     error: ''
 }
 
@@ -14,11 +15,15 @@ export const searchReducer = (state=initialState, action) => {
                 isLoading: true
             }
         case FETCHING_SEARCH_SUCCESS:
+            let filtered = state.songs.filter(song =>{
+                let name = song.name.toLowerCase();
+                return name.includes(action.payload.toLowerCase());
+            });
+            
             return{
                 ...state,
                 isLoading: false,
-                // songs: [...action.payload]
-                songs: action.payload
+                result: [...filtered]
             }
         case FETCHING_SEARCH_FAILURE:
             return{
@@ -26,6 +31,26 @@ export const searchReducer = (state=initialState, action) => {
                 isLoading: false,
                 error: action.payload
             }
+        case FETCHING_SONGLIST_START:
+            return {
+                ...state,
+                isLoading: true
+            }
+        case FETCHING_SONGLIST_SUCCESS:
+            return{
+                ...state,
+                isLoading: false,
+                songs: [...action.payload]
+                // songs: action.payload
+            }
+
+        case FETCHING_SONGLIST_FAILURE:
+            return{
+                ...state,
+                isLoading: false,
+                error: action.payload
+            }
+
         default:
             return state;
     }

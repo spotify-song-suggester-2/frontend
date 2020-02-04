@@ -6,7 +6,8 @@ const Dashboard = (props) => {
     return (
         <div>
             I am the dashboard
-            <Search/>
+            <Search search={'searchSongs'} ph={'song name'}/>
+            {/* <Search search={'searchMood'} ph={'mood'}/> */}
             {/* Saved songs component which will receive songlist prop*/}
         </div>
     )
