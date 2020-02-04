@@ -16,8 +16,7 @@ export const signOut =() =>{
 
 
 export const Favorite=(Song)=>{
-    return{
-        type:'ADD_FAVORITE',
+       return { type:'ADD_FAVORITE',
         payload:Song
     }
 }

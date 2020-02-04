@@ -2,7 +2,7 @@ import {FETCHING_SEARCH_START, FETCHING_SEARCH_SUCCESS, FETCHING_SEARCH_FAILURE,
 
 const initialState = {
     isLoading: false,
-    songs: [],
+    songs: {},
     result: [],
     error: ''
 }
@@ -15,16 +15,19 @@ export const searchReducer = (state=initialState, action) => {
                 isLoading: true
             }
         case FETCHING_SEARCH_SUCCESS:
-            let filtered = state.songs.filter(song =>{
-                let name = song.name.toLowerCase();
-                return name.includes(action.payload.toLowerCase());
-            });
+            console.log('songs', state.songs);
+            // let filtered = state.songs.filter(song =>{
+            //     let name = song.name.toLowerCase();
+            //     return 
+            //     name.includes(action.payload.toLowerCase());
+            // });
             
-            return{
-                ...state,
-                isLoading: false,
-                result: [...filtered]
-            }
+            return state
+            // {
+            //     ...state,
+            //     isLoading: false,
+            //     result: [...filtered]
+            // }
         case FETCHING_SEARCH_FAILURE:
             return{
                 ...state,
@@ -40,7 +43,7 @@ export const searchReducer = (state=initialState, action) => {
             return{
                 ...state,
                 isLoading: false,
-                songs: [...action.payload]
+                songs: {...action.payload}
                 // songs: action.payload
             }
 
