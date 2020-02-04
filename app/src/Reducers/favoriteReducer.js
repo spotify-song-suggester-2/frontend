@@ -21,13 +21,9 @@ export  const favoriteReducer =(state=initialState,action)=>{
     switch(action.type){
         
         case 'ADD_FAVORITE':
-<<<<<<< HEAD
             console.log('from the reducer', action.payload);
             return{...state,
                 Favorites: { ...state.Favorites, favoriteList: state.Favorites.favoriteList.includes(action.payload) ? [...state.Favorites.favoriteList] :[...state.Favorites.favoriteList,action.payload]}}
-=======
-                return {Favorites: { ...state.Favorites, favoriteList: state.Favorites.favoriteList.includes(action.payload) ? [...state.Favorites.favoriteList] :[...state.Favorites.favoriteList,action.payload]}}
->>>>>>> react1
 
 
             case 'REMOVE_FAVORITE':

@@ -3,12 +3,6 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import axios from 'axios'
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  margin: 4% auto;
-`;
 
 const SignUp = props => {
   const { user, setUser, setCurrentUser } = props;
@@ -69,51 +63,39 @@ const SignUp = props => {
         password: ""
       });
 
-      history.push("/dashboard");
+      history.push("/");
     }
   };
 
-  //   import { useHistory } from "react-router-dom";
-
-  // function HomeButton() {
-  //   const history = useHistory();
-
-  //   function handleClick() {
-  //     history.push("/home");
-  //   }
-
-  //   return (
-  //     <button type="button" onClick={handleClick}>
-  //       Go home
-  //     </button>
-  //   );
-  // }
 
   return (
     <div>
       <Form onSubmit={onSubmit}>
-        <input
+        <Input
           name="username"
           placeholder="username"
           onChange={handleChange}
           value={currentVal.username}
+          autoComplete="off"
         />
 
-        <input
+        <Input
           name="email"
           placeholder="email"
           onChange={handleChange}
           value={currentVal.email}
+          autoComplete="off"
         />
 
-        <input
+        <Input
           name="password"
           type="password"
           placeholder="password"
           onChange={handleChange}
           value={currentVal.password}
+          autoComplete="off"
         />
-        <button>Sign Up</button>
+        <Button>Sign Up</Button>
       </Form>
       <div>
         <p>{unError}</p>
@@ -126,3 +108,39 @@ const SignUp = props => {
 
 export default SignUp;
 
+const Input = styled.input`
+    background: none;
+    color: white;
+    border: 3px solid white;
+    padding: 1%;
+    border-radius: 35px;
+    width: 20%;
+    margin: .5% 0;
+    font-size: 1.2rem;
+    outline: none;
+
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Button = styled.button`
+    border: 1px solid white;
+    width: 5%;
+    background: none;
+    margin: 2% auto;
+    padding: .75% 0;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    &:hover{
+        background: white;
+        color: #0E0B20;
+        border: 1px solid #0E0B20;
+    }
+`;
