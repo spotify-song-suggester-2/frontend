@@ -12,12 +12,12 @@ const FavoriteData= (props) => {
     return (
         <div>
         <h2>songList</h2>
-        {props.}
+
         </div>
     )
 }
 
-const mapStateToPorps= state=>{
+const mapStateToProps= state=>{
     return {
         Favorites:state.Favorites,
         dummySongs:state.dummySongs
