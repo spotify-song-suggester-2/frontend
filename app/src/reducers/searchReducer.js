@@ -15,12 +15,13 @@ export const searchReducer = (state=initialState, action) => {
                 isLoading: true
             }
         case FETCHING_SEARCH_SUCCESS:
+            // console.log('songs', state.songs);
             let filtered = state.songs.filter(song =>{
                 let name = song.name.toLowerCase();
                 return name.includes(action.payload.toLowerCase());
             });
             
-            return{
+            return {
                 ...state,
                 isLoading: false,
                 result: [...filtered]

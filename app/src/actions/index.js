@@ -16,9 +16,13 @@ export const signOut =() =>{
 
 
 export const Favorite=(Song)=>{
+<<<<<<< HEAD
     console.log('from the favorite action', Song)
     return{
         type:'ADD_FAVORITE',
+=======
+       return { type:'ADD_FAVORITE',
+>>>>>>> react1
         payload:Song
     }
 }
