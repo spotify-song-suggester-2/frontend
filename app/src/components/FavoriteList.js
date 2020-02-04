@@ -1,36 +1,38 @@
-import React from 'react'
+import React from "react";
 
+const FavoriteList = props => {
+  console.log("from the favorite list", props.Favorites);
 
+  // const addToFavv = props => {
+  //   return (
+  //     <div>
+  //       <button onClick={() => props.removeFav(props.Song)} className="button">X</button>
+  //       <p>testinggggggg</p>
+  //       {props.Song.name}
+  //     </div>
+  //   );
+  // };
 
-
-const FavoriteList = (props) => {
-    console.log('from the favorite list', props.Favorites);
-
-    const addedFav = props => {
-      return (
-        <li>
-          <button onClick={() => props.removeFav(props.Song)} className="button">X</button>
-          {props.Song.name}
-        </li>
-      );
-    };
-
-
-
+  const Songs2 = props => {
     return (
+      <div>
+        <button onClick={() => props.removeFav(props.Song)} className="button">
+          Unfavorite
+        </button>
+        {props.Song.name}
+      </div>
+    );
+  };
 
+  return (
+    <div>
+      {props.Favorites.map(item => (
         <div>
-            
-            <ol>
-                {props.Favorites.map(item=>(
-                    <addedFav removeFav={props.removeFav} Song={item}/>
-                ))}
-            </ol>
-            
+          <Songs2 removeFav={props.removeFav} key={item.id} Song={item} />
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
 
-
-
-export default FavoriteList
+export default FavoriteList;

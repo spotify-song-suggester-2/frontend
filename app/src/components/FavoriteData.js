@@ -48,7 +48,7 @@ const mapStateToProps= state=>{
     console.log(state)
     console.log(state.favoriteReducer.Favorites)
     return {
-        Favorites:state.favoriteReducer.Favorites,
+        Favorites: state.favoriteReducer.Favorites,
         dummySongs:state.favoriteReducer.dummySongs,
         favoriteLists: state.favoriteReducer.Favorites.favoriteList
        
