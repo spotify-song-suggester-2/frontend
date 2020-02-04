@@ -1,3 +1,6 @@
+
+
+
 export const signIn =(userId) =>{
     return {
         type: 'SIGN_IN',
@@ -12,14 +15,16 @@ export const signOut =() =>{
 }
 
 
-export const Favorite=()=>{
+export const Favorite=(Song)=>{
     return{
-        type:'ADD_FAVORITE'
+        type:'ADD_FAVORITE',
+        payload:Song
     }
 }
 
-export const UnFavorite=()=>{
+export const UnFavorite=(Song)=>{
     return{
-        type:'REMOVE_FAVORITE'
+        type:'REMOVE_FAVORITE',
+        payloag:Song
     }
 }
