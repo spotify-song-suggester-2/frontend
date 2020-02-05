@@ -31,7 +31,7 @@ export  const favoriteReducer =(state=initialState,action)=>{
                     ...state,
                     Favorites: {
                       ...state.Favorites,
-                      features: state.Favorites.favoriteList.filter(song => song.id !==action.payload.id)
+                      favoriteList: state.Favorites.favoriteList.filter(song => song.track_id !==action.payload.track_id)
                     }
                   };  
             default:
