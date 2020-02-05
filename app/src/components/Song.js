@@ -12,8 +12,11 @@ const Song = (props) => {
                 <Img src="https://pbs.twimg.com/profile_images/846659478120366082/K-kZVvT8_400x400.jpg"/>
             </ImgDiv>
             <InfoDiv>
-                <h2>{song.name}</h2>
-                <p>{song.tempo} BPM</p>
+                {/* <h2>{song.name}</h2>
+                <p>{song.tempo} BPM</p> */}
+                <h2>{song.track_name}</h2>
+                <p>{song.artist_name}</p>
+
             </InfoDiv>
             <ButtonDiv>
             
