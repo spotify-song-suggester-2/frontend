@@ -9,7 +9,8 @@ const Song = (props) => {
     return (
         <SongContainer>
             <ImgDiv>
-                <Img src="https://pbs.twimg.com/profile_images/846659478120366082/K-kZVvT8_400x400.jpg"/>
+                {/* <Img src="https://pbs.twimg.com/profile_images/846659478120366082/K-kZVvT8_400x400.jpg"/> */}
+                <Img src={song.album_cover_url}/>
             </ImgDiv>
             <InfoDiv>
                 {/* <h2>{song.name}</h2>

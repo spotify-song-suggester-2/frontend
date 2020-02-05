@@ -22,7 +22,9 @@ const Login = props => {
   const onSubmit = e => {
     e.preventDefault();
     console.log(currentVal);
-    axiosWithAuth().post('https://auth-friends-backend.herokuapp.com/api/login', currentVal)
+    // axiosWithAuth().post('https://auth-friends-backend.herokuapp.com/api/login', currentVal)
+    axiosWithAuth().post('https://song-suggester-a.herokuapp.com/api/auth/login', currentVal)
+
       .then(res=>{
         localStorage.setItem('token', res.data.payload);
         history.push('/dashboard');
