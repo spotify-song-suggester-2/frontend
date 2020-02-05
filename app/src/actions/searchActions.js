@@ -22,7 +22,8 @@ export const searchSongs = (song) => dispatch => {
 
 export const displaySongs = () => dispatch => {
     dispatch({type: FETCHING_SONGLIST_START})
-    axios.get('http://localhost:3333/items')
+    // axios.get('http://localhost:3333/items')
+    axios.get('https://modifiedtrinkets.herokuapp.com/items')
         .then(res=>dispatch({type: FETCHING_SONGLIST_SUCCESS, payload: res.data}))
         .catch(err=>dispatch({type: FETCHING_SONGLIST_FAILURE, payload: err}))
 }
