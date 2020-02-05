@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Favorite,UnFavorite,editList,getListName} from '../actions'
 import FavoriteList from './FavoriteList';
 import SongList from './SongList';
+import styled from "styled-components";
 
 
 
@@ -44,11 +45,11 @@ const FavoriteData= (props) => {
 
 
     return (
-        <div>
+        <FavoriteDiv>
         <div>
         {/* <h2>songList</h2> */}
-        <h2>{props.listName}</h2>
-        <button onClick={()=>setIsEditing(true)}>edit playlist name</button>
+        <H2>{props.listName}</H2>
+        <Button onClick={()=>setIsEditing(true)}>edit playlist name</Button>
         {isEditing && <form onSubmit={onSubmit}>
             <input name='playlist' placeholder='playlist' value={editForm} onChange={handleChange}/>
         </form>}
@@ -62,7 +63,7 @@ const FavoriteData= (props) => {
             addFav={addFav}
             dummySongs={props.dummySongs}/>
         </div>
-        </div>
+        </FavoriteDiv>
     )
 }
 
@@ -82,3 +83,28 @@ const mapStateToProps= state=>{
 
 
 export default connect(mapStateToProps,{Favorite,UnFavorite,editList,getListName})(FavoriteData)
+
+
+
+const H2 = styled.h2`
+color: #ef019f;
+  text-decoration:underline 
+  margin: 10 0 0 0;
+`;
+
+const Button = styled.button`
+    border: 2px solid white;
+    background: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    &:hover{
+        background: #ef019f;
+        color: #0E0B20;
+        border: 1px solid #0E0B20;
+    }
+`;
+
+const FavoriteDiv = styled.div`
+  margin-top:10%;
+`;

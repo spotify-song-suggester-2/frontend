@@ -18,8 +18,8 @@ const sendUserError = (msg, res) => {
 
 let items = [
   {id: 0, name: 'Total Eclipse of the Heart', artist: 'Bonnie Tyler', mood: 'sad', tempo: '60', accoustic: 'no'},
-  {id: 0, name: 'Stayin\' Alive', artist: 'The Bee Gees', mood: 'happy', tempo: '104', accoustic: 'no'},
-  {id: 0, name: 'Body Beautiful', artist: 'Salt n Pepa', mood: 'happy', tempo: '102', accoustic: 'no'}
+  {id: 1, name: 'Stayin\' Alive', artist: 'The Bee Gees', mood: 'happy', tempo: '104', accoustic: 'no'},
+  {id: 2, name: 'Body Beautiful', artist: 'Salt n Pepa', mood: 'happy', tempo: '102', accoustic: 'no'}
 ]
 
 server.get("/items", (req, res) => {
