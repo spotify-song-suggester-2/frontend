@@ -38,6 +38,7 @@ const FavoriteData= (props) => {
           e.preventDefault();
           props.editList({id: 1, playlist: editForm});
           setRefresh(!refresh);
+          setIsEditing(false);
       }
 
 
