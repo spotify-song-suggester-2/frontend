@@ -44,9 +44,7 @@ export const editList = (list) => dispatch => {
         // .then(res=>console.log(res))
         .then(res=>{
             dispatch({type: 'FETCHING_PLAYLIST_SUCCESS', payload: res.data[0]});
-            axiosWithAuth().get('https://auth-friends-backend.herokuapp.com/api/friends')
-        .then(res=>dispatch({type: 'FETCHING_PLAYLIST_SUCCESS', payload: res.data}))
-        .catch(err=>dispatch({type: 'FETCHING_PLAYLIST_FAILURE', payload: err}))
+            
 
         })
         .catch(err=>dispatch({type: 'FETCHING_PLAYLIST_FAILURE', payload: err}))
