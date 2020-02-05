@@ -19,7 +19,7 @@ const FavoriteList = props => {
         <button onClick={() => props.removeFav(props.Song)} className="button">
           Unfavorite
         </button>
-        {props.Song.name}
+        {props.Song.track_name}
       </div>
     );
   };
@@ -28,7 +28,7 @@ const FavoriteList = props => {
     <div>
       {props.Favorites.map(item => (
         <div>
-          <Songs2 removeFav={props.removeFav} key={item.id} Song={item} />
+          <Songs2 removeFav={props.removeFav} key={item.track_id} Song={item} />
         </div>
       ))}
     </div>
