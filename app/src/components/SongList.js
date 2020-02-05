@@ -18,11 +18,7 @@ const SongList = (props) => {
         <div>
         
       
-          {props.dummySongs.map(item => (
-            <Songs addFav={props.addFav} key={item.id} Song={item} />
-            
-          ))}
-     
+         
             
         </div>
     )
