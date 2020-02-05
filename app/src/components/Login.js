@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-// import axios from 'axios';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import axios from 'axios'
 import styled from 'styled-components'
+import FadeIn from 'react-fade-in';
+
+
 
 const Login = props => {
   // const { user } = props;
@@ -13,13 +15,17 @@ const Login = props => {
     password: ""
   });
   const [genre, setGenre] = useState("");
+  const [isNew, setIsNew] = useState(false);
 
 
 
 
   const getAGenre = ()=>{
     axios.get('https://binaryjazz.us/wp-json/genrenator/v1/genre/')
-      .then(res=>setGenre(res.data))
+      .then(res=>{
+        setGenre(res.data)
+        setIsNew(true)
+      })
       .catch(err=>console.log(err))
   }
 
@@ -56,14 +62,24 @@ const Login = props => {
       </Form>
       <div>
         <h3 style={{marginTop: '4%'}}>Need a music suggestion?</h3>
-        <Button onClick={getAGenre} style={{width: '8%'}}>get genre</Button>
-        <p style={{color: 'rgba(239,1,159,1)'}}>{genre}</p>
+        <Button onClick={()=>{
+          getAGenre();
+          setIsNew(false)
+        }} style={{width: '8%'}}>get genre</Button>
+        {isNew === true && <FadeIn>
+          <p style={{color: 'rgba(239,1,159,1)'}}>{genre}</p>
+        </FadeIn>}
       </div>
     </div>
   );
 };
 
 export default Login;
+
+
+
+
+
 
 const Input = styled.input`
     background: none;
