@@ -14,10 +14,16 @@ export const searchReducer = (state=initialState, action) => {
                 ...state,
                 isLoading: true
             }
+        // case FETCHING_SEARCH_SUCCESS:
+        //     // console.log('songs', state.songs);
+        //     let filtered = state.songs.filter(song =>{
+        //         let name = song.name.toLowerCase();
+        //         return name.includes(action.payload.toLowerCase());
+        //     });
         case FETCHING_SEARCH_SUCCESS:
-            // console.log('songs', state.songs);
+            // actual data
             let filtered = state.songs.filter(song =>{
-                let name = song.name.toLowerCase();
+                let name = song.track_name.toLowerCase();
                 return name.includes(action.payload.toLowerCase());
             });
             
