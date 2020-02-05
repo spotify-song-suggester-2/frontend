@@ -15,6 +15,7 @@ const FavoriteData= (props) => {
 
 
     useEffect(()=>{
+        // console.log('from favoriteData', props.listName)
         props.getListName();
         setEditForm(props.listName)
     }, [props.listName, refresh])

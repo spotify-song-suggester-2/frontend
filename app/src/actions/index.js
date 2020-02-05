@@ -53,8 +53,8 @@ export const editList = (list) => dispatch => {
 
 export const getListName = () => dispatch => {
 
-    // axios.get('http://localhost:3333/items')
     axiosWithAuth().get('https://auth-friends-backend.herokuapp.com/api/friends')
         .then(res=>dispatch({type: 'FETCHING_PLAYLIST_SUCCESS', payload: res.data}))
+        // .then(res=>console.log('from the get request', res))
         .catch(err=>dispatch({type: 'FETCHING_PLAYLIST_FAILURE', payload: err}))
 }
