@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 // import axios from 'axios';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+import axios from 'axios'
 import styled from 'styled-components'
 
 const Login = props => {
@@ -11,8 +12,16 @@ const Login = props => {
     username: "",
     password: ""
   });
-  const [message, setMessage] = useState("");
+  const [genre, setGenre] = useState("");
 
+
+
+
+  const getAGenre = ()=>{
+    axios.get('https://binaryjazz.us/wp-json/genrenator/v1/genre/')
+      .then(res=>setGenre(res.data))
+      .catch(err=>console.log(err))
+  }
 
 
   const handleChange = e => {
@@ -45,7 +54,11 @@ const Login = props => {
         />
         <Button>Login</Button>
       </Form>
-      {/* <div style={{color: 'white'}}>Message: {message}</div> */}
+      <div>
+        <h3 style={{marginTop: '4%'}}>Need a music suggestion?</h3>
+        <Button onClick={getAGenre} style={{width: '8%'}}>get genre</Button>
+        <p style={{color: 'rgba(239,1,159,1)'}}>{genre}</p>
+      </div>
     </div>
   );
 };
@@ -75,7 +88,7 @@ const Form = styled.form`
 
 const Button = styled.button`
     border: 1px solid white;
-    width: 5%;
+    width: 8%;
     background: none;
     margin: 2% auto;
     padding: .75% 0;
