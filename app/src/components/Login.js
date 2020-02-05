@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 import styled from 'styled-components'
 
 const Login = props => {
@@ -21,7 +22,7 @@ const Login = props => {
   const onSubmit = e => {
     e.preventDefault();
     console.log(currentVal);
-    axios.post('http://localhost:5000/api/login', currentVal)
+    axiosWithAuth().post('https://auth-friends-backend.herokuapp.com/api/login', currentVal)
       .then(res=>{
         localStorage.setItem('token', res.data.payload);
         history.push('/dashboard');
