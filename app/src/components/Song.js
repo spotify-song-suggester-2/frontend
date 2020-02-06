@@ -4,7 +4,7 @@ import {Favorite,Suggested} from '../actions'
 import {connect} from 'react-redux'
 
 const Song = (props) => {
-    console.log('song props', props);
+    // console.log('song props', props);
     const {song} = props;
 
     const test={

@@ -4,6 +4,7 @@ import {searchSongs, displaySongs} from '../actions/searchActions'
 import styled from 'styled-components'
 import Song from './Song'
 import axios from 'axios'
+import FadeIn from 'react-fade-in';
 
 const Search = (props) => {
 
@@ -17,6 +18,10 @@ const Search = (props) => {
     const handleChange = (e) => {
         if (e.target.value !== ''){
             props[props.search](e.target.value)
+            props.setIsTyping(true)
+        }
+        else{
+            props.setIsTyping(false);
         }
 
     }
@@ -32,14 +37,17 @@ const Search = (props) => {
                 <Input autoComplete='off' name='search' placeholder={`search by ${props.ph}`} onChange={handleChange}/>
                 {/* <button>search</button> */}
             </form>
-            {props.result && <Songs>
-                {props.result.map(song => {
-                    console.log('in the map', song)
-                    return (
-                        <Song song={song}/>
-                    )
-                })}
-            </Songs>}
+            {props.result && props.isTyping && 
+            <FadeIn>
+                <Songs>
+                    {props.result.map(song => {
+                        console.log('in the map', song)
+                        return (
+                            <Song song={song}/>
+                        )
+                    })}
+                </Songs>
+            </FadeIn>}
         </Container>
     )
 }

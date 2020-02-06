@@ -1,29 +1,43 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
+import FadeIn from 'react-fade-in';
 
 
 
 const SuggestedList =props =>{
+  const [isDifferent, setIsDifferent] = useState(false);
+
+  // useEffect(()=>{
+  //   setIsDifferent(true);
+  //   console.log('from the useEffect')
+  //   console.log('H', props.Song);
+  // }, [props.Song])
 
 
     const SuggestedLayout = props => {
+        console.log('isDifferent', isDifferent)
         return (
-          <SongContainer>
+          <div>
+            {props.isTyping && <FadeIn><SongContainer>
           
-            <ImgDiv>
-              <Img src={props.Song.album_cover_url} />
-            </ImgDiv>
-            
-            <InfoDiv>
-            <h3> Our Suggestion:</h3>
+          <ImgDiv>
+            <Img src={props.Song.album_cover_url} />
+          </ImgDiv>
           
-            </InfoDiv>
-                <h4>{props.Song.track_name}</h4>
-             
-            <ButtonDiv>
-              <Button onClick={() => props.addFav(props.Song) }>Favorite</Button>
-            </ButtonDiv>
-          </SongContainer>
+          <InfoDiv>
+          <h3> Our Suggestion:</h3>
+        
+          </InfoDiv>
+              <h4>{props.Song.track_name}</h4>
+           
+          <ButtonDiv>
+            <Button onClick={() => {
+              props.addFav(props.Song);
+              setIsDifferent(false);
+            } }>Favorite</Button>
+          </ButtonDiv>
+        </SongContainer></FadeIn>}
+          </div>
         );
       };
     
@@ -32,7 +46,7 @@ return (
     <div> 
         {props.suggested.map(Song=>(
             <div>
-                <SuggestedLayout Song={Song} addFav={props.addFav}/>
+                <SuggestedLayout Song={Song} addFav={props.addFav} isTyping={props.isTyping}/>
                 </div>
         ))}
 
@@ -53,16 +67,6 @@ const SongContainer = styled.div`
   padding: 2% 0;
   text-align: left;
   display: flex;
-  @media(max-width: 760px){
-    width: 100%;
-}
-@media(max-width: 450px){
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 `;
 
 const Img = styled.img`

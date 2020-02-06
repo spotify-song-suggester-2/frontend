@@ -1,17 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Search from './Search'
 import {connect} from 'react-redux'
 import styled from 'styled-components'
 import FavoriteComponent from './FavoriteData'
 
 const Dashboard = (props) => {
+    const [isTyping, setIsTyping] = useState(false);
     return (
         <div>
             {/* <H1>Symphinity</H1> */}
-            <Search search={'searchSongs'} ph={'song name'}/>
+            <Search search={'searchSongs'} ph={'song name'} isTyping={isTyping} setIsTyping={setIsTyping}/>
             {/* <Search search={'searchMood'} ph={'mood'}/> */}
             {/* Saved songs component which will receive songlist prop*/}
-            <FavoriteComponent/>
+            <FavoriteComponent isTyping={isTyping}/>
         </div>
     )
 }

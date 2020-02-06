@@ -48,7 +48,7 @@ const FavoriteData= (props) => {
     return (
         <FavoriteDiv>
         <div>
-        <SuggestedList addFav={addFav} suggested={props.suggested}/>
+        <SuggestedList addFav={addFav} suggested={props.suggested} isTyping={props.isTyping}/>
         {/* <h2>songList</h2> */}
         <H2>{props.listName}</H2>
         <Button onClick={()=>setIsEditing(true)}>edit playlist name</Button>
