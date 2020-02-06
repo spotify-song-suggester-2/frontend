@@ -30,12 +30,29 @@ export const UnFavorite=(Song)=>{
     }
 }
 
-// export const editList = (listName) => {
-//     return {
-//         type: 'EDIT_LISTNAME',
-//         payload: listName
+//Sample delete action
+// export const UnFavorite= (song) => {
+//     return{
+//         axiosWithAuth().delete(`https://auth-friends-backend.herokuapp.com/api/friends/${song.id}`)
+//             .then(res=>{
+
+//                 dispatch({type: FETCHING_SONGLIST_START});
+//                 axiosWithAuth().get('https://modifiedtrinkets.herokuapp.com/items')
+//                     .then(res=>dispatch({type: FETCHING_SONGLIST_SUCCESS, payload: res.data}))
+//                     .catch(err=>dispatch({type: FETCHING_SONGLIST_FAILURE, payload: err}))
+//             }
+                
+                
+//                 )
+//             .catch(err=>dispatch({type: 'UNFAVORITE_SONG_FAILURE', payload: err}))
 //     }
 // }
+
+
+
+
+
+
 
 export const editList = (list) => dispatch => {
 
@@ -49,6 +66,12 @@ export const editList = (list) => dispatch => {
         })
         .catch(err=>dispatch({type: 'FETCHING_PLAYLIST_FAILURE', payload: err}))
 }
+
+
+
+
+
+
 
 
 export const getListName = () => dispatch => {
