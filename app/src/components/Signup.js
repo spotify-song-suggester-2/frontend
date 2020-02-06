@@ -215,7 +215,7 @@ const SignUp = props => {
 
 
   return (
-    <div>
+    <Container>
       <Form onSubmit={onSubmit}>
         <Input
           name="username"
@@ -241,11 +241,14 @@ const SignUp = props => {
         <p>{emError}</p>
         <p>{passError}</p>
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default SignUp;
+
+const Container = styled.div`
+`;
 
 const Input = styled.input`
     background: none;
@@ -257,7 +260,12 @@ const Input = styled.input`
     margin: .5% 0;
     font-size: 1.2rem;
     outline: none;
-
+    @media(max-width: 1100px){
+      width: 40%;
+    }
+    @media(max-width: 570px){
+      width: 60%;
+    }
 `;
 
 const Form = styled.form`
@@ -266,11 +274,12 @@ const Form = styled.form`
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  
 `;
 
 const Button = styled.button`
     border: 1px solid white;
-    width: 5%;
+    width: 8%;
     background: none;
     margin: 2% auto;
     padding: .75% 0;
@@ -281,5 +290,11 @@ const Button = styled.button`
         background: white;
         color: #0E0B20;
         border: 1px solid #0E0B20;
+    }
+    @media(max-width: 900px){
+      width: 15%;
+    }
+    @media(max-width: 490px){
+      width: 25%;
     }
 `;

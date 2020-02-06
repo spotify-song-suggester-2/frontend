@@ -60,16 +60,16 @@ const Login = props => {
         />
         <Button>Login</Button>
       </Form>
-      <div>
+      <GenreContainer>
         <h3 style={{marginTop: '4%'}}>Need a music suggestion?</h3>
-        <Button onClick={()=>{
+        <GenreButton onClick={()=>{
           getAGenre();
           setIsNew(false)
-        }} style={{width: '8%'}}>get genre</Button>
+        }}>get genre</GenreButton>
         {isNew === true && <FadeIn>
           <p style={{color: 'rgba(239,1,159,1)'}}>{genre}</p>
         </FadeIn>}
-      </div>
+      </GenreContainer>
     </div>
   );
 };
@@ -92,6 +92,12 @@ const Input = styled.input`
     margin: .5% 0;
     font-size: 1.2rem;
     outline: none;
+    @media(max-width: 1100px){
+      width: 40%;
+    }
+    @media(max-width: 570px){
+      width: 60%;
+    }
 
 `;
 
@@ -117,4 +123,35 @@ const Button = styled.button`
         color: #0E0B20;
         border: 1px solid #0E0B20;
     }
+    @media(max-width: 900px){
+      width: 15%;
+    }
+    @media(max-width: 490px){
+      width: 25%;
+    }
+`;
+
+const GenreButton = styled.button`
+    border: 1px solid white;
+    width: 8%;
+    background: none;
+    margin: 2% auto;
+    padding: .75% 0;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    &:hover{
+        background: white;
+        color: #0E0B20;
+        border: 1px solid #0E0B20;
+    }
+    @media(max-width: 1130px){
+      width: 15%;
+    }
+    @media(max-width: 490px){
+      width: 30%;
+    }
+`;
+
+const GenreContainer = styled.div`
 `;

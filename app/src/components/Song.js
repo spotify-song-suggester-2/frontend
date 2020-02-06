@@ -53,6 +53,16 @@ const SongContainer = styled.div`
     padding: 2% 0;
     text-align: left;
     display: flex;
+    @media(max-width: 760px){
+        width: 100%;
+    }
+    @media(max-width: 450px){
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 `;
 
 const Img = styled.img`

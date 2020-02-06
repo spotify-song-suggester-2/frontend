@@ -70,6 +70,10 @@ const Input = styled.input`
     width: 40%;
     font-size: 1.2rem;
     outline: none;
+    @media(max-width: 500px){
+        width: 60%;
+        font-size: 1rem;
+    }
 `;
 
 const Songs = styled.div`
@@ -78,7 +82,7 @@ const Songs = styled.div`
     justify-content: center;
     align-items: center
     margin: 0 auto;
-    // border: 1px solid red; 
+
 `;
 
 
