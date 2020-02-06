@@ -31,7 +31,6 @@ export const UnFavorite=(Song)=>{
     }
 }
 
-<<<<<<< HEAD
 //Sample delete action
 // export const UnFavorite= (song) => {
 //     return{
@@ -47,7 +46,6 @@ export const UnFavorite=(Song)=>{
                 
 //                 )
 //             .catch(err=>dispatch({type: 'UNFAVORITE_SONG_FAILURE', payload: err}))
-=======
 // export const Suggested=(id)=> dispatch=>{
 //     console.log('suggested ID is :',id)
 //   dispatch({type:"SUGG_START"})
@@ -70,7 +68,6 @@ export const Suggested=(id)=> dispatch=>{
 //     return {
 //         type: 'EDIT_LISTNAME',
 //         payload: listName
->>>>>>> master
 //     }
 // }
 
