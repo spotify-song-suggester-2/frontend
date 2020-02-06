@@ -4,6 +4,7 @@ import {Favorite,UnFavorite,editList,getListName} from '../actions'
 import FavoriteList from './FavoriteList';
 import SongList from './SongList';
 import styled from "styled-components";
+import SuggestedList from "./SuggestedList"
 
 
 
@@ -46,6 +47,7 @@ const FavoriteData= (props) => {
     return (
         <FavoriteDiv>
         <div>
+        <SuggestedList suggested={props.suggested}/>
         {/* <h2>songList</h2> */}
         <H2>{props.listName}</H2>
         <Button onClick={()=>setIsEditing(true)}>edit playlist name</Button>
@@ -72,11 +74,13 @@ const FavoriteData= (props) => {
 const mapStateToProps= state=>{
     console.log(state)
     console.log(state.favoriteReducer.Favorites)
+    console.log(state.suggestedReducer.Suggested)
     return {
         Favorites: state.favoriteReducer.Favorites,
         dummySongs:state.favoriteReducer.dummySongs,
         favoriteLists: state.favoriteReducer.Favorites.favoriteList,
-        listName: state.favoriteReducer.Favorites.listName
+        listName: state.favoriteReducer.Favorites.listName,
+        suggested: state.suggestedReducer.Suggested
     }
 }
 

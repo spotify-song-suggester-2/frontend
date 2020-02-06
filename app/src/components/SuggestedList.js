@@ -9,14 +9,17 @@ const SuggestedList =props =>{
     const SuggestedLayout = props => {
         return (
           <SongContainer>
+          
             <ImgDiv>
               <Img src={props.Song.album_cover_url} />
             </ImgDiv>
-            <h1> Suggested Song</h1>
+            
             <InfoDiv>
-              <h2>{props.Song.track_name}</h2>
-              <p>{props.Song.artist_name}</p>
+            <h3> Our Suggestion:</h3>
+          
             </InfoDiv>
+                <h4>{props.Song.track_name}</h4>
+             
             <ButtonDiv>
               <Button onClick={() => props.addFav(props.song) }>Favorite</Button>
             </ButtonDiv>
@@ -66,7 +69,7 @@ const ImgDiv = styled.div`
 
 const InfoDiv = styled.div`
   width: 50%;
-  color:  #ef019f;
+  color:   #959AB1;
 `;
 
 const Button = styled.button`
