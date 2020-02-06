@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import {useHistory} from "react-router-dom";
 import FavoriteComponent from './components/FavoriteData';
 import Dashboard from './components/Dashboard';
 import Signup from './components/Signup';
@@ -13,13 +14,14 @@ import styled from 'styled-components'
 function App() {
   const [user, setUser] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
+  const history = useHistory();
 
   return (
     <div className="App">
     <Nav/>
     <H1>Symphinity</H1>
-    <Route path='/signup'><Signup user={user} setUser={setUser} setCurrentUser={setCurrentUser}/></Route>
-    <Route exact path='/'><Login user={user}/></Route>
+    <Route path='/signup'><Signup user={user} setUser={setUser} setCurrentUser={setCurrentUser} history={history}/></Route>
+    <Route exact path='/'><Login user={user} history={history}/></Route>
     <PrivateRoute path="/dashboard" component={Dashboard} />
     {/* <Route path='/dashboard'><Dashboard/></Route> */}
     </div>
