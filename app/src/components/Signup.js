@@ -14,6 +14,12 @@ const StyledField = styled(Field)`
   margin: .5% 0;
   font-size: 1.2rem;
   outline: none;
+  @media(max-width: 1100px){
+    width: 40%;
+  }
+  @media(max-width: 570px){
+    width: 60%;
+  }
 `;
 
 const StyledForm = styled(Form)`
@@ -36,6 +42,12 @@ const Button = styled.button`
     background: white;
     color: #0E0B20;
     border: 1px solid #0E0B20;
+  }
+  @media(max-width: 900px){
+    width: 15%;
+  }
+  @media(max-width: 490px){
+    width: 25%;
   }
 `;
 
