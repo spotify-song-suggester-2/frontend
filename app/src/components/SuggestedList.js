@@ -43,7 +43,7 @@ const SuggestedList =props =>{
     
 
 return (
-    <div> 
+    <Container> 
         {props.suggested.map(Song=>(
             <div>
                 <SuggestedLayout Song={Song} addFav={props.addFav} isTyping={props.isTyping}/>
@@ -51,7 +51,7 @@ return (
         ))}
 
 
-    </div>
+    </Container>
 )
 
 
@@ -59,6 +59,9 @@ return (
 
 export default SuggestedList
 
+const Container = styled.div`
+
+`;
 
 const SongContainer = styled.div`
   border-bottom: 3px solid white;
@@ -67,6 +70,16 @@ const SongContainer = styled.div`
   padding: 2% 0;
   text-align: left;
   display: flex;
+  @media(max-width: 760px){
+    width: 100%;
+}
+@media(max-width: 450px){
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 `;
 
 const Img = styled.img`
