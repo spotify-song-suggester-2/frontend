@@ -28,10 +28,9 @@ const StyledForm = styled(Form)`
 
 const Button = styled.button`
   border: 1px solid white;
-  width: 8%;
   background: none;
-  margin: 2% auto;
-  padding: .75% 0;
+  margin: 5px auto;
+  padding: 5px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
@@ -43,7 +42,7 @@ const Button = styled.button`
 `;
 
 
-function Login() {
+function Login({status}) {
   const [genre, setGenre] = useState("");
   const [isNew, setIsNew] = useState(false);
 
@@ -51,7 +50,7 @@ function Login() {
     axios.get('https://binaryjazz.us/wp-json/genrenator/v1/genre/')
       .then(res=>{
         setGenre(res.data);
-        setIsNew(true)
+        setIsNew(true);
       })
       .catch(err=>console.log(err))
   }
@@ -63,9 +62,10 @@ function Login() {
         <StyledField type="password" name="password" placeholder="password" />
         <Button>Login</Button>
       </StyledForm>
+      {status === 400 && <p>Invalid username or password</p>}
       <div>
         <h3 style={{marginTop: '4%'}}>Need a music suggestion?</h3>
-        <Button onClick={() => {getAGenre(); setIsNew(false)}} style={{width: '8%'}}>get genre</Button>
+        <Button onClick={() => {getAGenre(); setIsNew(false);}}>get genre</Button>
         {isNew === true && <FadeIn><p style={{color: 'rgba(239,1,159,1)'}}>{genre}</p></FadeIn>}
       </div>
     </div>
@@ -87,7 +87,7 @@ const FormikLogin = withFormik({
       .min(5, "Password must be 5 characters or longer")
       .required("Password is required")
   }),
-  handleSubmit(values, {resetForm, setSubmitting, props: {history}}) {
+  handleSubmit(values, {resetForm, setSubmitting, setStatus, props: {history}}) {
     axiosWithAuth().post('https://song-suggester-a.herokuapp.com/api/auth/login', values)
       .then(res => {
         console.log(res);
@@ -99,6 +99,8 @@ const FormikLogin = withFormik({
       .catch(err => {
         console.log(err);
         setSubmitting(false);
+        console.log(err.response.status);
+        setStatus(err.response.status);
       });
   }
 })(Login);

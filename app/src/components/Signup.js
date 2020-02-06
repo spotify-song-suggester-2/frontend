@@ -26,10 +26,9 @@ const StyledForm = styled(Form)`
 
 const Button = styled.button`
   border: 1px solid white;
-  width: 8%;
   background: none;
-  margin: 2% auto;
-  padding: .75% 0;
+  margin: 5px auto;
+  padding: 5px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
@@ -40,7 +39,7 @@ const Button = styled.button`
   }
 `;
 
-function SignUp({errors, touched, isSubmitting}) {
+function SignUp({errors, touched, isSubmitting, status}) {
   return (
     <div>
       <StyledForm>
@@ -51,6 +50,7 @@ function SignUp({errors, touched, isSubmitting}) {
       <div>
         {touched.username && errors.username && <p>{errors.username}</p>}
         {touched.password && errors.password && <p>{errors.password}</p>}
+        {status === 500 && <p>Username already taken</p>}
       </div>
     </div>
   );
@@ -71,7 +71,7 @@ const FormikSignUp = withFormik({
       .min(5, "Password must be 5 characters or longer")
       .required("Password is required")
   }),
-  handleSubmit(values, {resetForm, setSubmitting, props: {history}}) {
+  handleSubmit(values, {resetForm, setSubmitting, setStatus, props: {history}}) {
     axios
       .post("https://song-suggester-a.herokuapp.com/api/auth/register", values)
       .then(res => {
@@ -83,6 +83,7 @@ const FormikSignUp = withFormik({
       .catch(err => {
         console.log(err);
         setSubmitting(false);
+        setStatus(err.response.status);
       });
   }
 })(SignUp);
