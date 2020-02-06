@@ -1,4 +1,5 @@
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+import axios from 'axios'
 
 
 export const signIn =(userId) =>{
@@ -30,6 +31,7 @@ export const UnFavorite=(Song)=>{
     }
 }
 
+<<<<<<< HEAD
 //Sample delete action
 // export const UnFavorite= (song) => {
 //     return{
@@ -45,6 +47,30 @@ export const UnFavorite=(Song)=>{
                 
 //                 )
 //             .catch(err=>dispatch({type: 'UNFAVORITE_SONG_FAILURE', payload: err}))
+=======
+// export const Suggested=(id)=> dispatch=>{
+//     console.log('suggested ID is :',id)
+//   dispatch({type:"SUGG_START"})
+//   axios.get(`https://symphinity17.herokuapp.com/id/${id}`)
+//   .then(res=>dispatch({type:"SUGG_SUCCESS",payload:res.data}))
+//   .catch(err=>dispatch({type:"SUGG_FAILURE",payload:err}))
+ 
+// }
+
+export const Suggested=(id)=> dispatch=>{
+    console.log('suggested ID is :',id)
+  dispatch({type:"SUGG_START"})
+  axios.get(`https://cors-anywhere.herokuapp.com/https://symphinity17.herokuapp.com/id/${id}`)
+  .then(res=>dispatch({type:"SUGG_SUCCESS",payload:res.data}))
+  .catch(err=>dispatch({type:"SUGG_FAILURE",payload:err}))
+ 
+}
+
+// export const editList = (listName) => {
+//     return {
+//         type: 'EDIT_LISTNAME',
+//         payload: listName
+>>>>>>> master
 //     }
 // }
 
