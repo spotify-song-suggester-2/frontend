@@ -51,7 +51,7 @@ const FavoriteData= (props) => {
         <SuggestedList addFav={addFav} suggested={props.suggested} isTyping={props.isTyping}/>
         {/* <h2>songList</h2> */}
         <H2>{props.listName}</H2>
-        <Button onClick={()=>setIsEditing(true)}>edit playlist name</Button>
+        {/* <Button onClick={()=>setIsEditing(true)}>edit playlist name</Button> */}
         {isEditing && <form onSubmit={onSubmit}>
             <input name='playlist' placeholder='playlist' value={editForm} onChange={handleChange}/>
         </form>}
