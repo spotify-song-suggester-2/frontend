@@ -32,6 +32,7 @@ export const UnFavorite=(Song)=>{
 }
 
 //Sample delete action
+// The delete request sends a request to the specific endpoint with a dynamic id on the end sent from the unFavorite function when a user clicks unFavorite. That would let the server know which song to remove from the playlist array. I then have a nested get request to get the new playlist and dispatch the FECTCHING_SONGLIST action to get the new list and display it for the user
 // export const UnFavorite= (song) => {
 //     return{
 //         axiosWithAuth().delete(`https://auth-friends-backend.herokuapp.com/api/friends/${song.id}`)
