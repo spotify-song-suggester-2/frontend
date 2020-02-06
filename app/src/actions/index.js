@@ -43,7 +43,7 @@ export const UnFavorite=(Song)=>{
 export const Suggested=(id)=> dispatch=>{
     console.log('suggested ID is :',id)
   dispatch({type:"SUGG_START"})
-  axios.get(`/${id}`)
+  axios.get(`https://cors-anywhere.herokuapp.com/https://symphinity17.herokuapp.com/id/${id}`)
   .then(res=>dispatch({type:"SUGG_SUCCESS",payload:res.data}))
   .catch(err=>dispatch({type:"SUGG_FAILURE",payload:err}))
  
