@@ -1,11 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Favorite} from '../actions'
+import {Favorite,Suggested} from '../actions'
 import {connect} from 'react-redux'
 
 const Song = (props) => {
     console.log('song props', props);
     const {song} = props;
+
+    const test={
+
+    }
+
     return (
         <SongContainer>
             <ImgDiv>
@@ -22,6 +27,7 @@ const Song = (props) => {
             <ButtonDiv>
             
                 <Button onClick={() => props.Favorite(song)}>Favorite</Button>
+                <Button onClick= {() =>props.Suggested(song.track_index_num)}>Suggested </Button>
             </ButtonDiv>
             
             
@@ -30,6 +36,7 @@ const Song = (props) => {
 }
 
 const mapStateToProps = state => {
+
     return {
         Favorites: state.favoriteReducer.Favorites,
         dummySongs: state.favoriteReducer.dummySongs
@@ -37,7 +44,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {Favorite})(Song)
+export default connect(mapStateToProps, {Favorite,Suggested})(Song)
 
 const SongContainer = styled.div`
     border-bottom: 3px solid white;

@@ -1,4 +1,5 @@
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+import axios from 'axios'
 
 
 export const signIn =(userId) =>{
@@ -28,6 +29,15 @@ export const UnFavorite=(Song)=>{
         type:'REMOVE_FAVORITE',
         payload:Song
     }
+}
+
+export const Suggested=(id)=> dispatch=>{
+    console.log('suggested ID is :',id)
+  dispatch({type:"SUGG_START"})
+  axios.get(`https://symphinity17.herokuapp.com/id/${id}`)
+  .then(res=>dispatch({type:"SUGG_SUCCESS",payload:res.data}))
+  .catch(err=>dispatch({type:"SUGG_FAILURE",payload:err}))
+ 
 }
 
 // export const editList = (listName) => {
