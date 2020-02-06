@@ -43,7 +43,7 @@ export const UnFavorite=(Song)=>{
 export const Suggested=(id)=> dispatch=>{
     console.log('suggested ID is :',id)
   dispatch({type:"SUGG_START"})
-  axios.get(`${id}`)
+  axios.get(`/${id}`)
   .then(res=>dispatch({type:"SUGG_SUCCESS",payload:res.data}))
   .catch(err=>dispatch({type:"SUGG_FAILURE",payload:err}))
  
